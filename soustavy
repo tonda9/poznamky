@@ -31,4 +31,111 @@ zpět 11b(16) =  11*1 + 1*16 + 1*256 = 11+16+256 = 283(10)
                                                    8 4 2 1 
                                                    =    1  =1
 
+
+
+# martinuv kod
+#include <stdio.h>
+#define MIN 2
+#define MAX 100
+
+int buffer(){
+    int konec = 0;
+    int cislo;
+    while ( konec ==0 ) {
+    printf("zadej cislo v intervalu od %d do %d \n", MIN ,MAX);
+    scanf("%d", &cislo);
+        int buffer = 0;
+        while (getchar() != '\n') {
+            buffer++;
+        }
+        if (buffer != 0) {
+            printf("zadal jsi spatne zadej nznovu \n");
+            konec = 0;
+        }
+        else if (cislo < MIN || cislo > MAX){
+            printf("zadal jsi spatne zadej nznovu \n");
+            konec = 0;
+        }
+        else{
+            konec = 1;
+        }
+    }return cislo;
+}
+
+int prvoCislo(){
+    int cislo = buffer();
+        printf("%d", cislo);
+        int delitelne = 0;
+        for (int j = 1; j < cislo ; ++j) {
+            if(cislo %j == 0){
+                delitelne++;
+            }
+        }
+        if(delitelne == 1){
+            printf("je prvocislo\n");
+        } else{
+            printf("neni prvocislo bo mam hlad\n");
+        }
+
+}
+
+
+int main(void) {
+    prvoCislo();
+    return 0;
+}
+
+# cely kod
+#include <stdio.h>
+#define MIN 2
+#define MAX 100
+
+int buffer(){
+    int konec = 0;
+    int cislo;
+    while ( konec ==0 ) {
+    printf("zadej cislo v intervalu od %d do %d \n", MIN ,MAX);
+    scanf("%d", &cislo);
+        int buffer = 0;
+        while (getchar() != '\n') {
+            buffer++;
+        }
+        if (buffer != 0) {
+            printf("zadal jsi spatne zadej nznovu \n");
+            konec = 0;
+        }
+        else if (cislo < MIN || cislo > MAX){
+            printf("zadal jsi spatne zadej nznovu \n");
+            konec = 0;
+        }
+        else{
+            konec = 1;
+        }
+    }return cislo;
+}
+
+int prvoCislo(){
+    int cislo = buffer();
+    for (int i = cislo; i <= MAX; ++i) {
+        printf("%d", i);
+        int delitelne = 0;
+        for (int j = 1; j <i ; ++j) {
+            if(i %j == 0){
+                delitelne++;
+            }
+        }
+        if(delitelne == 1){
+            printf("*\n");
+        } else{
+            printf("\n");
+        }
+    }
+}
+
+
+int main(void) {
+    prvoCislo();
+    return 0;
+}
+
               

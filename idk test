@@ -1,0 +1,50 @@
+#include <stdio.h>
+#define MINVKL 10000
+#define MAXVKL 1000000
+
+int buffer() {
+    int buf = 0;
+    while (getchar() != '\n') {
+        buf++;
+    }
+    if (buf == 0) {
+        return 1;
+    } else {
+        return 0;
+    }
+
+}
+
+int minMaxInterval(float budget){
+    if (budget > MAXVKL || budget < MINVKL){
+        return 0;
+    } else{
+        return 1;
+    }
+}
+
+float userInput() {
+    printf("zadej cislo od %d po %d \n", MINVKL , MAXVKL);
+    float budget;
+    int Continue = 1;
+    do{
+        scanf("%f", &budget);
+        int buf = buffer();
+        int interval = minMaxInterval(budget);
+        if (buf == 0 || interval == 0) {
+            printf("Nezadal jsi vhodne cislo, zadej znovu \n");
+            Continue = 1;
+        } else {
+            Continue = 0;
+        }
+    }while (Continue == 1);
+    return budget;
+}
+
+
+int main(void) {
+    printf("Hello, World!\n");
+    float budget = userInput();
+    printf("%f", budget );
+    return 0;
+}

@@ -138,4 +138,54 @@ int main(void) {
     return 0;
 }
 
-              
+
+
+
+
+#include <stdio.h>
+#define ZDARMA 2
+#define SAZBA 20
+#define CASY "casy.txt"
+
+typedef struct{
+    int hodiny;
+    int minuty;
+    int sekundy;
+}CAS;
+
+typedef struct {
+    CAS vjezd;
+    CAS vyjezd;
+}ZAZNAM;
+
+void header(){
+    printf("\n");
+    printf("P A R K O V Y S T E \n");
+    printf("----------------------------------------------------------- \n");
+    printf("poradi   cas vjezdu    cas odjezdu    doba parkovani \n");
+    printf("----------------------------------------------------------- \n");
+}
+
+int vypocet_sekund(ZAZNAM zaznam){
+    
+}
+
+int main(void) {
+    ZAZNAM zaznam;
+   FILE *s_cas  = fopen(CASY, "r");
+   if(s_cas == NULL){
+       printf("NENi soubor %s \n", CASY);
+       return 0;
+   }
+    header();
+   int i = 1;
+   while (fscanf(s_cas, "%d %d %d %d %d %d", &zaznam.vjezd.hodiny, &zaznam.vjezd.minuty, &zaznam.vjezd.sekundy, &zaznam.vyjezd.hodiny, &zaznam.vyjezd.minuty, &zaznam.vyjezd.sekundy) != EOF){
+       printf("%5d.  %02d:%02d:%20d     %20d:%02d:%02d     %02d:%02d:%02d", i,zaznam.vjezd.hodiny, zaznam.vjezd.minuty, zaznam.vjezd.sekundy, zaznam.vyjezd.hodiny, zaznam.vyjezd.minuty, zaznam.vyjezd.sekundy, );
+
+       i++;
+   }
+
+
+    return 0;
+}
+
